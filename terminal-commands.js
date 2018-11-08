@@ -10,14 +10,16 @@ module.exports.ls = () => {
     });
 };
 
-module.exports.touch = () => {
-
-    // your code here
-
+module.exports.touch = (name, content) => {
+    fs.writeFile(name, content, 'utf8', (err) => {
+        if (err) throw err;
+        console.log('file ' + name + ' created.');
+    });
 };
 
-module.exports.mkdir = () => {
-
-    // your code here
-
+module.exports.mkdir = (path) => {
+    fs.mkdir(path, (err) => {
+        if (err) throw err;
+        console.log(path + ' created.');
+    });
 };
